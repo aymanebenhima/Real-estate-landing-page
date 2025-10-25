@@ -66,3 +66,1048 @@ body {
 body.no-scroll {
     overflow: hidden;
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--clr-primary);
+}
+
+ul {
+    list-style: none;
+}
+
+img, picture {
+    max-width: 100%;
+    display: block;
+}
+
+h1, h2, h3 {
+    font-weight: var(--fw-semibold);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+/* ====================
+   3. CLASSES UTILITAIRES
+   ==================== */
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+}
+
+/* Classe d'accessibilité pour masquer visuellement */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    font-family: var(--font-primary);
+    font-size: var(--fs-base);
+    font-weight: var(--fw-medium);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius-sm);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: var(--transition);
+    background-color: var(--clr-primary);
+    color: var(--clr-light);
+    text-align: center;
+}
+
+.btn--outline {
+    background-color: transparent;
+    border-color: var(--clr-gray);
+    color: var(--clr-dark-light);
+}
+
+.btn:hover {
+    opacity: 0.85;
+    color: var(--clr-light);
+}
+
+.btn--outline:hover {
+    background-color: var(--clr-primary);
+    border-color: var(--clr-primary);
+    color: var(--clr-light);
+}
+
+/* ====================
+   GLOBAL MEDIA QUERIES (pour :root)
+   ==================== */
+@media (min-width: 768px) {
+    :root {
+        --fs-h1: 2.75rem;
+        --fs-h2: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --fs-h1: 3.25rem;
+    }
+}
+
+/* ====================
+   4. HEADER (Mobile First)
+   ==================== */
+.header {
+    width: 100%;
+    padding-block: 1rem;
+    background-color: var(--clr-light);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--clr-gray);
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    font-size: 1.5rem;
+    font-weight: var(--fw-bold);
+    color: var(--clr-primary);
+}
+
+.header__logo:hover {
+    color: var(--clr-primary);
+}
+
+/* Bouton Hamburger */
+.header__toggle {
+    display: flex; /* Utilisation de flex pour aligner les spans */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 28px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 110;
+}
+
+.header__toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--clr-dark);
+    border-radius: 3px;
+    transition: var(--transition);
+}
+
+/* Styles pour le menu mobile (caché par défaut) */
+.header__nav {
+    display: none; /* Caché par défaut sur mobile */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--clr-light);
+    z-index: 105;
+}
+
+.header__nav--visible {
+    display: flex; /* Affiché via JS */
+}
+
+.header__nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.header__nav-link {
+    font-size: 1.25rem;
+    font-weight: var(--fw-medium);
+}
+
+.header__login {
+    display: none; /* Caché par défaut sur mobile */
+}
+
+.header__login--visible {
+    display: block; /* Affiché dans le menu mobile via JS */
+    position: absolute;
+    bottom: 10vh;
+    z-index: 106;
+}
+
+/* Animation hamburger -> croix */
+[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+/* --- Media Queries pour HEADER --- */
+@media (min-width: 768px) {
+    .header__toggle {
+        display: none; /* Cache le hamburger */
+    }
+    
+    .header__nav {
+        display: flex;
+        flex-direction: row; /* Nav devient horizontale */
+        position: static;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        z-index: 1;
+    }
+    
+    .header__nav-list {
+        flex-direction: row;
+        gap: 2.5rem;
+    }
+
+    .header__nav-link {
+        font-size: var(--fs-base); /* Taille de police normale */
+    }
+
+    .header__login {
+        display: block; /* Affiche le bouton login */
+    }
+}
+
+@media (min-width: 1024px) {
+    .header__container {
+        display: flex;
+        align-items: center;
+    }
+
+    .header__logo {
+        flex-shrink: 0; /* Ne rétrécit pas */
+    }
+
+    .header__nav {
+        flex-grow: 1; /* Pousse le logo et le login sur les côtés */
+        margin-inline: 2rem;
+    }
+
+    .header__nav-list {
+        justify-content: center; /* Centre la nav */
+    }
+
+    .header__login {
+        flex-shrink: 0;
+    }
+}
+
+/* ====================
+   5. HERO (Mobile First)
+   ==================== */
+.hero {
+    padding-block: var(--section-padding);
+}
+
+.hero__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    position: relative;
+    padding: var(--section-padding);
+    background: linear-gradient(110deg, hsl(207, 100%, 97%), hsl(207, 100%, 94%));
+    border-radius: 0;
+}
+
+.hero__content {
+    text-align: center;
+    color: var(--clr-dark);
+    z-index: 2;
+}
+
+.hero__title {
+    color: var(--clr-dark);
+}
+
+.hero__image-wrapper {
+    display: none; /* Caché sur mobile pour la simplicité */
+}
+
+/* --- Media Queries pour HERO --- */
+@media (min-width: 768px) {
+    .hero__container {
+        padding: 3rem; /* Padding pour le grand conteneur */
+        min-height: 500px;
+        border-radius: var(--border-radius-lg, 24px); /* Coins arrondis */
+        overflow: hidden; /* Garde les coins arrondis */
+        
+        /* Instruction clé :
+          Applique l'image de la maison ET le dégradé en même temps.
+          L'image est à droite, le dégradé est derrière.
+        */
+        background: 
+            /* 1. Image (assurez-vous que le chemin est correct) */
+            url('./images/Banner Image.png') no-repeat right bottom / 60% auto,
+            /* 2. Dégradé */
+            linear-gradient(110deg, hsl(207, 100%, 97%), hsl(207, 100%, 94%));
+            background-size: cover;
+        /* S'assure que le contenu et le formulaire sont bien espacés */
+        justify-content: space-between;
+    }
+    
+    .hero__content {
+        text-align: left;
+        max-width: 45%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero__container {
+        padding: 4rem;
+        /* L'image de la maison prend un peu moins de place */
+        background-size: cover;
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        background-color: transparent;
+    }
+    
+    .hero__content {
+        max-width: 40%;
+    }
+}
+
+
+/* ====================
+   6. SEARCH FORM (Mobile First)
+   ==================== */
+.search-form {
+    background-color: var(--clr-light);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow);
+    padding: 1rem;
+    border: 1px solid var(--clr-gray);
+    z-index: 3;
+}
+
+.search-form__tabs {
+    display: flex;
+    margin-bottom: 1.5rem;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+}
+
+.search-form__tab {
+    flex-grow: 0; /* Ne grandit pas */
+    padding: 0.25rem 0;
+    margin-right: 1.5rem;
+    font-size: var(--fs-base);
+    font-weight: var(--fw-medium);
+    border: none;
+    background-color: transparent;
+    color: var(--clr-dark-light); /* Couleur inactive */
+    cursor: pointer;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 3px solid transparent;
+}
+
+.search-form__tab--active {
+    color: var(--clr-dark); /* Couleur active */
+    font-weight: var(--fw-semibold);
+    border-bottom-color: var(--clr-primary);
+    
+    /* Suppression des anciens styles de boîte */
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.search-form__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.search-form__group {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--clr-gray);
+}
+
+.search-form__group:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.search-form__label {
+    font-size: var(--fs-small);
+    font-weight: var(--fw-medium);
+    color: var(--clr-dark);
+    margin-bottom: 0.25rem;
+}
+
+.search-form__input {
+    font-family: var(--font-primary);
+    font-size: var(--fs-base);
+    padding: 0.25rem 0 0 0; /* Juste un peu de padding en haut */
+    border: none;
+    background-color: transparent; /* Fond transparent */
+    width: 100%;
+}
+
+.search-form__input::placeholder {
+    color: var(--clr-dark-light);
+    opacity: 1;
+}
+
+select.search-form__input {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23888'%3E%3Cpath d='M8 11L3 6h10L8 11z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.25rem center;
+    background-size: 16px 16px;
+    padding-right: 2rem; /* Espace pour la flèche */
+}
+
+.search-form__input:focus {
+    outline: none;
+}
+
+.search-form__submit {
+    padding: 0.75rem; /* Padding carré pour le bouton icône */
+    width: 100%; /* Pleine largeur sur mobile */
+    border-radius: var(--border-radius-sm); /* Bouton carré sur mobile */
+}
+
+/* --- Media Queries pour SEARCH FORM --- */
+@media (min-width: 768px) {
+    .search-form {
+        /* Positionnement absolu en bas du conteneur hero */
+        position: absolute;
+        bottom: 2rem;
+        left: 2rem;
+        right: 2rem;
+        max-width: 900px; /* Limite la largeur du formulaire */
+        margin-inline: auto; /* Centre le formulaire */
+
+        /* L'effet "verre dépoli" */
+        background-color: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        border-radius: var(--border-radius-md);
+        padding: 1.5rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-form__fields {
+        flex-direction: row; /* Champs horizontaux */
+        align-items: center;
+        gap: 0; /* Le padding gère l'espacement */
+    }
+
+    .search-form__group {
+        flex-grow: 1; /* Chaque groupe prend la même place */
+        flex-basis: 0;
+        padding: 0 1rem;
+        border-bottom: none; /* Supprime le séparateur mobile */
+        /* Séparateur vertical */
+        border-right: 1px solid var(--clr-gray);
+    }
+    
+    .search-form__group:last-of-type {
+        border-right: none; /* Pas de séparateur sur le dernier */
+    }
+
+    .search-form__submit {
+        width: 44px;  /* Bouton carré... */
+        height: 44px;
+        padding: 0;
+        flex-shrink: 0; /* Empêche le bouton de rétrécir */
+        margin-left: 1rem;
+        
+        /* ...transformé en cercle */
+        border-radius: 50%; 
+        
+        /* Centre l'icône SVG */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 1024px) {
+    .search-form {
+        padding: 1.5rem 2rem;
+        bottom: 1.5rem;
+        left: 2.5rem;
+        right: 2.5rem;
+    }
+    
+    .search-form__group {
+        padding: 0 1.5rem; /* Plus d'espace */
+    }
+}
+
+/* ====================
+   7. COUNTRIES (Mobile First)
+   ==================== */
+.countries {
+    padding-block: var(--section-padding);
+}
+
+.countries__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.countries__card {
+    position: relative; /* Pour positionner le titre */
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    height: 350px;
+}
+
+.countries__card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.countries__card:hover .countries__card-img {
+    transform: scale(1.05);
+}
+
+.countries__card-title {
+    position: absolute;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--clr-dark);
+    padding: 0.25rem 1rem;
+    border-radius: var(--border-radius-lg);
+    font-size: var(--fs-small);
+    font-weight: var(--fw-bold);
+    letter-spacing: .3rem;
+}
+
+/* --- Media Queries pour COUNTRIES --- */
+@media (min-width: 768px) {
+    .countries__wrapper {
+        flex-direction: row;
+        flex-wrap: wrap; /* Passage à la ligne */
+        gap: 1.5rem;
+    }
+    
+    /* 2 cartes par ligne (50% - moitié du gap) */
+    .countries__card {
+        flex-basis: calc(50% - 0.75rem);
+    }
+}
+
+@media (min-width: 1024px) {
+    .countries__wrapper {
+        flex-wrap: nowrap; /* 4 cartes sur une ligne */
+    }
+    
+    .countries__card {
+        flex-basis: 25%;
+    }
+}
+
+/* ====================
+   8. LISTINGS (Mobile First)
+   ==================== */
+.listings {
+    padding-block: var(--section-padding);
+}
+
+.listings__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.listings__header .section-title {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.listings__see-all {
+    font-weight: var(--fw-medium);
+    color: var(--clr-primary);
+}
+
+.listings__wrapper {
+    display: flex;
+    flex-direction: column; /* Pile verticale sur mobile */
+    gap: 1.5rem;
+}
+
+/* * CARTE D'ANNONCE (Design final)
+ * Ce style s'applique par défaut (Mobile First)
+*/
+.listing-card {
+    display: flex;
+    flex-direction: row; /* Toujours horizontal, même sur mobile */
+    align-items: center; /* Centre verticalement */
+    gap: 1rem; /* Espace réduit sur mobile */
+    
+    /* Style du conteneur */
+    background-color: var(--clr-light);
+    border: 2px solid var(--clr-primary-light); /* Bordure bleu clair */
+    border-radius: var(--border-radius-lg, 20px); /* Bords très arrondis */
+    padding: 1rem; /* Espace intérieur */
+    
+    overflow: hidden; /* Changé de 'visible' à 'hidden' pour la propreté */
+    transition: var(--transition);
+}
+
+.listing-card:hover {
+    box-shadow: var(--box-shadow);
+    border-color: transparent;
+}
+
+.listing-card__figure {
+    /* Taille fixe pour l'image */
+    flex-shrink: 0; /* Empêche l'image de rétrécir */
+    width: 80px;  /* Image plus petite sur mobile */
+    height: 80px; /* Image plus petite sur mobile */
+    
+    /* Coins arrondis pour l'image */
+    border-radius: var(--border-radius-md, 12px);
+    overflow: hidden; /* Masque les coins de l'image */
+}
+
+.listing-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.listing-card__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Prend l'espace restant */
+    gap: 0.5rem; /* Espace réduit entre les éléments sur mobile */
+    padding: 0;
+}
+
+.listing-card__title {
+    font-size: 1.125rem; /* Légèrement plus petit sur mobile */
+    font-weight: var(--fw-bold);
+    color: var(--clr-dark);
+    margin-bottom: 0;
+    line-height: 1.3; /* Améliore la lisibilité */
+}
+
+.listing-card__specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Espace entre les specs */
+    font-size: var(--fs-small);
+    color: var(--clr-dark-light);
+    margin-bottom: 0;
+}
+
+.listing-card__footer {
+    /* Sur mobile, on empile l'auteur et le prix */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligne les deux à gauche */
+    gap: 0.5rem; /* Espace entre l'auteur et le prix */
+    margin-top: 0.25rem;
+}
+
+.listing-card__author {
+    font-size: var(--fs-small);
+    color: var(--clr-dark-light);
+}
+
+.listing-card__price {
+    /* Style du prix */
+    font-size: var(--fs-base);
+    font-weight: var(--fw-bold);
+    color: var(--clr-light);
+    background-color: var(--clr-muted);
+    padding: 0.25rem 0.75rem; /* Padding réduit sur mobile */
+    border-radius: var(--border-radius-sm);
+}
+
+/* --- Media Queries pour LISTINGS --- */
+@media (min-width: 768px) {
+    .listings__wrapper {
+        flex-direction: row; /* 2 colonnes */
+        flex-wrap: wrap;
+    }
+    
+    .listing-card {
+        /* 2 cartes par ligne */
+        flex-basis: calc(50% - 0.75rem);
+        gap: 1.5rem; /* Retour à l'espacement normal */
+    }
+
+    .listing-card__figure {
+        width: 100px; /* Image à sa taille normale */
+        height: 100px;
+    }
+    
+    .listing-card__body {
+        gap: 0.75rem; /* Espacement normal */
+    }
+    
+    .listing-card__title {
+        font-size: 1.25rem; /* Taille de titre normale */
+    }
+    
+    .listing-card__specs {
+        gap: 1.5rem;
+    }
+    
+    .listing-card__footer {
+        /* Retour à la disposition horizontale */
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0;
+    }
+
+    .listing-card__price {
+        padding: 0.5rem 1rem; /* Padding normal */
+    }
+}
+
+@media (min-width: 1024px) {
+    .listing-card {
+        /* Toujours 2 cartes par ligne, mais le container est plus large */
+        flex-basis: calc(50% - 0.75rem);
+    }
+}
+
+
+
+/* ====================
+   9. CTA (Mobile First)
+   ==================== */
+.cta {
+    padding-block: var(--section-padding);
+}
+
+
+.cta__container {
+    display: flex;
+    flex-direction: column; /* Mobile first: pile verticale */
+    
+    /* Style de l'image : fond dégradé bleu clair et coins très arrondis */
+    background: linear-gradient(110deg, hsl(207, 100%, 97%), hsl(207, 100%, 94%));
+    border-radius: var(--border-radius-lg, 20px); /* Assurez-vous d'avoir cette variable ou mettez 20px */
+    
+    /* TRÈS IMPORTANT : pour que les coins de l'image soient aussi arrondis */
+    overflow: hidden; 
+    
+    padding: 0; /* Le padding sera sur les enfants */
+}
+
+.cta__content {
+    padding: 2.5rem var(--container-padding);
+    text-align: center; /* Mobile first: texte centré */
+}
+
+.cta__title {
+    color: var(--clr-dark);
+}
+
+.cta__description {
+    color: var(--clr-dark-light);
+    margin-block: 1rem 1.5rem;
+    max-width: 450px; /* Limite la largeur du texte */
+    margin-inline: auto; /* Centre le texte (sur mobile) */
+}
+
+/* Adaptation de la couleur du bouton pour correspondre à l'image */
+.cta__btn {
+    background-color: #00A3FF; /* Nouveau bleu vif */
+    border: none;
+    border-radius: var(--border-radius-sm);
+    padding: 0.75rem 2rem;
+}
+
+.cta__btn:hover {
+    background-color: #008be0; /* Couleur de survol assombrie */
+    color: var(--clr-light);
+}
+
+.cta__image-wrapper {
+    width: 100%;
+    min-height: 250px; /* Hauteur minimale sur mobile */
+
+    /* Instruction principale : appliquer l'image en fond */
+    /* Assurez-vous que le chemin est correct ! */
+    background-image: url('./images/simone-hutsch-8n9npBvQUWg-unsplash 1.png');
+    
+    /* Propriétés pour plus de flexibilité */
+    background-size: cover;       /* L'image couvre tout le div */
+    background-position: center;  /* L'image est centrée */
+    background-repeat: no-repeat;
+}
+
+/* Suppression de l'ancienne règle pour l'image */
+.cta__image {
+    display: none; /* L'élément n'existe plus, mais par sécurité */
+}
+
+/* --- Media Queries pour CTA --- */
+@media (min-width: 768px) {
+    .cta__container {
+        flex-direction: row; /* Passage à l'horizontal */
+        align-items: stretch; /* Les deux côtés auront la même hauteur */
+    }
+
+    .cta__content {
+        flex-basis: 50%; /* Chaque côté prend 50% */
+        text-align: left; /* Aligner le texte à gauche */
+        padding: 3rem;
+        
+        /* Optionnel : meilleur centrage vertical du texte */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-inline: 0; /* Annule le centrage mobile */
+    }
+    
+    .cta__description {
+        margin-inline: 0; /* Annule le centrage mobile */
+    }
+
+    .cta__image-wrapper {
+        flex-basis: 50%;
+        min-height: 350px; /* Hauteur minimale sur tablette */
+    }
+}
+
+@media (min-width: 1024px) {
+    .cta__content {
+        flex-basis: 60%;
+        padding: 4rem;
+    }
+    .cta__image-wrapper {
+        flex-basis: 40%;
+    }
+}
+
+/* ====================
+   10. FOOTER (Mobile First)
+   ==================== */
+.footer {
+    background-color: transparent;
+    color: var(--clr-footer-text);
+    padding-top: 3rem;
+}
+
+.footer__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding-bottom: 3rem;
+}
+
+.footer__logo {
+    font-size: 1.5rem;
+    font-weight: var(--fw-bold);
+    color: var(--clr-dark);
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.footer__description {
+    margin-bottom: 1.5rem;
+    max-width: 300px;
+}
+
+.footer__socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer__socials a {
+    color: var(--clr-footer-text);
+}
+
+.footer__socials a:hover {
+    color: var(--clr-primary);
+}
+
+.footer__links-title {
+    color: var(--clr-dark);
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer__links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer__links-list a:hover {
+    color: var(--clr-primary);
+}
+
+.footer__subscribe p {
+    margin-bottom: 1rem;
+}
+
+/* * FOOTER FORM - Nouveau design (style "Input avec bouton intérieur")
+ */
+
+.footer__form-group {
+    /* 1. Agit comme conteneur principal */
+    position: relative; /* Indispensable pour positionner le bouton à l'intérieur */
+    display: flex; /* Garde la structure flex */
+    
+    /* 2. Style du conteneur "pillule" */
+    background-color: var(--clr-light);
+    border: 1px solid var(--clr-gray); /* Bordure légère comme sur l'image */
+    border-radius: 999px; /* Astuce pour un arrondi parfait (pill-shape) */
+    overflow: hidden; /* Assure que rien ne dépasse */
+}
+
+.footer__form-input {
+    /* 1. Prend tout l'espace disponible */
+    flex-grow: 1;
+    
+    /* 2. Style visuel (transparent, sans bordure) */
+    font-family: var(--font-primary);
+    font-size: var(--fs-base);
+    color: var(--clr-dark-light); /* Couleur du texte saisi */
+    border: none;
+    background-color: transparent;
+
+    /* 3. Espacement */
+    padding: 0.75rem 1.5rem;
+    /* IMPORTANT: Ajoute de l'espace à droite pour ne pas que le texte aille SOUS le bouton */
+    padding-right: 4.5rem; /* ~ largeur du bouton + marges */
+}
+
+.footer__form-input::placeholder {
+    color: var(--clr-dark-light); /* Couleur du placeholder */
+    opacity: 1;
+}
+
+/* Supprime l'anneau bleu lors du focus (clic) */
+.footer__form-input:focus {
+    outline: none;
+}
+
+.footer__form-submit {
+    /* 1. Positionnement absolu A L'INTERIEUR du parent */
+    position: absolute;
+    top: 50%; /* Centre verticalement (étape 1) */
+    right: 0.375rem; /* Petite marge de 6px du bord droit */
+    transform: translateY(-50%); /* Centre verticalement (étape 2) */
+
+    /* 2. Rendre le bouton circulaire */
+    width: 40px;  /* Largeur fixe */
+    height: 40px; /* Hauteur fixe */
+    border-radius: 50%; /* CRUCIAL: rend le bouton rond */
+    
+    /* 3. Centrer l'icône SVG dans le cercle */
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* 4. S'assurer qu'il n'a pas de bordure */
+    border: none;
+    
+    /* Note: les couleurs (.btn) sont déjà héritées */
+    /* background-color: var(--clr-primary); */
+    /* color: var(--clr-light); */
+}
+
+.footer__form-submit:hover {
+    opacity: 0.85; /* Garde l'effet de survol */
+}
+
+.footer__copyright {
+    text-align: center;
+    padding: 1.5rem var(--container-padding);
+    border-top: 1px solid var(--clr-dark-light);
+    font-size: var(--fs-small);
+}
+
+/* --- Media Queries pour FOOTER --- */
+@media (min-width: 768px) {
+    .footer__container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .footer__about {
+        flex-basis: 45%;
+    }
+
+    .footer__links {
+        flex-basis: 22%;
+    }
+
+    .footer__subscribe {
+        flex-basis: 100%; /* Pleine largeur sur tablette */
+        margin-top: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .footer__container {
+        flex-wrap: nowrap; /* Tout sur une ligne */
+        gap: 3rem;
+    }
+    
+    .footer__about {
+        flex-basis: 30%;
+    }
+
+    .footer__links {
+        flex-basis: auto;
+        flex-grow: 1;
+    }
+    
+    .footer__subscribe {
+        flex-basis: 35%;
+        margin-top: 0;
+    }
+}
