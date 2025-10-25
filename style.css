@@ -1,0 +1,68 @@
+/* ====================
+   1. VARIABLES CSS (ROOT)
+   ==================== */
+:root {
+    /* Couleurs */
+    --clr-primary: hsl(207, 90%, 54%); /* Bleu principal */
+    --clr-primary-light: hsl(207, 100%, 96%); /* Bleu clair (fond) */
+    --clr-dark: hsl(210, 20%, 25%); /* Texte foncé */
+    --clr-dark-light: hsl(210, 10%, 45%); /* Texte secondaire */
+    --clr-gray: hsl(210, 20%, 90%); /* Bordures */
+    --clr-light: hsl(0, 0%, 100%); /* Blanc */
+    --clr-muted: hsl(230, 15%, 55%); /* gris-bleu pour le prix */
+    --clr-footer-text: hsla(220, 4%, 15%, 1.00); /* Texte du footer */
+
+    /* Typographie */
+    --font-primary: 'Poppins', sans-serif;
+    --fs-h1: 2.25rem;
+    --fs-h2: 1.75rem;
+    --fs-h3: 1.125rem;
+    --fs-base: 1rem;
+    --fs-small: 0.875rem;
+
+    /* Poids de la police */
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+
+    /* Espacement */
+    --container-width: 1140px;
+    --container-padding: 1.5rem;
+    --section-padding: 3rem;
+
+    /* Autres */
+    --border-radius-sm: 6px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 20px;
+    --box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+    --transition: all 0.3s ease-in-out;
+}
+
+/* ====================
+   2. STYLES GLOBAUX & RESET
+   ==================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 100%; /* 16px */
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--fs-base);
+    line-height: 1.6;
+    color: var(--clr-dark);
+    background-color: var(--clr-light);
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
