@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate - Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header__container">
+            <a href="#" class="header__logo">
+                LogoIpsum
+            </a>
+
+            <button class="header__toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="#" class="header__nav-link">Home</a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link">Properties</a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link">Blog</a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <a href="#" class="header__login btn btn--outline">Log In</a>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <div class="container hero__container">
+                
+                <div class="hero__content">
+                    <h1 class="hero__title">Easy way to find a perfect property</h1>
+                    <p class="hero__description">We provide a complete service for the sale, purchase or rental of real estate.</p>
+                </div>
+
+                <form class="search-form">
+                    <div class="search-form__tabs">
+                        <button type="button" class="search-form__tab search-form__tab--active" aria-pressed="true">Rent</button>
+                        <button type="button" class="search-form__tab" aria-pressed="false">Buy</button>
+                        <button type="button" class="search-form__tab" aria-pressed="false">Sell</button>
+                    </div>
+                    
+                    <div class="search-form__fields">
+                        <div class="search-form__group">
+                            <label for="location" class="search-form__label">Location</label>
+                            <input type="text" id="location" class="search-form__input" placeholder="Select Your City">
+                        </div>
+                        <div class="search-form__group">
+                            <label for="property-type" class="search-form__label">Property Type</label>
+                            <select id="property-type" class="search-form__input">
+                                <option value="all">Choose Property Type</option>
+                                <option value="house">House</option>
+                                <option value="apartment">Apartment</option>
+                            </select>
+                        </div>
+                        <div class="search-form__group">
+                            <label for="price-range" class="search-form__label">Price Range</label>
+                            <input type="text" id="price-range" class="search-form__input" placeholder="Choose Price Range">
+                        </div>
+                        <button type="submit" class="search-form__submit btn" aria-label="Rechercher">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"/></svg>
+                        </button>
+                    </div>
+                </form>
+                
+            </div>
+        </section>
+
+        <section class="countries">
+            <div class="container">
+                <h2 class="section-title">We are available in many well-known countries</h2>
+                <div class="countries__wrapper">
+                    <article class="countries__card">
+                        <img src="./images/Rectangle 9.png" alt="La Statue de la Liberté à New York" class="countries__card-img">
+                        <h3 class="countries__card-title">AMERICA</h3>
+                    </article>
+                    <article class="countries__card">
+                        <img src="./images/Rectangle 10.png" alt="La Sagrada Familia à Barcelone, Espagne" class="countries__card-img">
+                        <h3 class="countries__card-title">SPAIN</h3>
+                    </article>
+                    <article class="countries__card">
+                        <img src="./images/Rectangle 11.png" alt="Big Ben à Londres" class="countries__card-img">
+                        <h3 class="countries__card-title">LONDON</h3>
+                    </article>
+                    <article class="countries__card">
+                        <img src="./images/Rectangle 12.png" alt="La Tour Eiffel à Paris" class="countries__card-img">
+                        <h3 class="countries__card-title">FRANCE</h3>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="listings">
+            <div class="container">
+                <div class="listings__header">
+                    <h2 class="section-title">Recently Added</h2>
+                    <a href="#" class="listings__see-all">See all</a>
+                </div>
+                <div class="listings__wrapper">
+                    <article class="listing-card">
+                        <figure class="listing-card__figure">
+                            <img src="./images/Rectangle 7-1.png" alt="Maison moderne verte à Crows Nest" class="listing-card__image">
+                        </figure>
+                        <div class="listing-card__body">
+                            <h3 class="listing-card__title">103/143 West Street, Crows Nest</h3>
+                            <div class="listing-card__specs">
+                                <span>10 Bedroom</span>
+                                <span>150 M</span>
+                                <span>2 Garage</span>
+                            </div>
+                            <div class="listing-card__footer">
+                                <p class="listing-card__author">Posted by X Builder</p>
+                                <span class="listing-card__price">$45,145</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="listing-card">
+                        <figure class="listing-card__figure">
+                            <img src="./images/Rectangle 7-2.png" alt="Vue intérieure d'un appartement moderne" class="listing-card__image">
+                        </figure>
+                        <div class="listing-card__body">
+                            <h3 class="listing-card__title">103/143 West Street, Crows Nest</h3>
+                            <div class="listing-card__specs">
+                                <span>10 Bedroom</span>
+                                <span>150 M</span>
+                                <span>2 Garage</span>
+                            </div>
+                            <div class="listing-card__footer">
+                                <p class="listing-card__author">Posted by X Builder</p>
+                                <span class="listing-card__price">$45,145</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="listing-card">
+                        <figure class="listing-card__figure">
+                            <img src="./images/Rectangle 7-3.png" alt="Maison moderne verte à Crows Nest" class="listing-card__image">
+                        </figure>
+                        <div class="listing-card__body">
+                            <h3 class="listing-card__title">103/143 West Street, Crows Nest</h3>
+                            <div class="listing-card__specs">
+                                <span>10 Bedroom</span>
+                                <span>150 M</span>
+                                <span>2 Garage</span>
+                            </div>
+                            <div class="listing-card__footer">
+                                <p class="listing-card__author">Posted by X Builder</p>
+                                <span class="listing-card__price">$45,145</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="listing-card">
+                        <figure class="listing-card__figure">
+                            <img src="./images/Rectangle 7-4.png" alt="Vue intérieure d'un appartement moderne" class="listing-card__image">
+                        </figure>
+                        <div class="listing-card__body">
+                            <h3 class="listing-card__title">103/143 West Street, Crows Nest</h3>
+                            <div class="listing-card__specs">
+                                <span>10 Bedroom</span>
+                                <span>150 M</span>
+                                <span>2 Garage</span>
+                            </div>
+                            <div class="listing-card__footer">
+                                <p class="listing-card__author">Posted by X Builder</p>
+                                <span class="listing-card__price">$45,145</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="listing-card">
+                        <figure class="listing-card__figure">
+                            <img src="./images/Rectangle 7-5.png" alt="Maison moderne verte à Crows Nest" class="listing-card__image">
+                        </figure>
+                        <div class="listing-card__body">
+                            <h3 class="listing-card__title">103/143 West Street, Crows Nest</h3>
+                            <div class="listing-card__specs">
+                                <span>10 Bedroom</span>
+                                <span>150 M</span>
+                                <span>2 Garage</span>
+                            </div>
+                            <div class="listing-card__footer">
+                                <p class="listing-card__author">Posted by X Builder</p>
+                                <span class="listing-card__price">$45,145</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="listing-card">
+                        <figure class="listing-card__figure">
+                            <img src="./images/Rectangle 7.png" alt="Vue intérieure d'un appartement moderne" class="listing-card__image">
+                        </figure>
+                        <div class="listing-card__body">
+                            <h3 class="listing-card__title">103/143 West Street, Crows Nest</h3>
+                            <div class="listing-card__specs">
+                                <span>10 Bedroom</span>
+                                <span>150 M</span>
+                                <span>2 Garage</span>
+                            </div>
+                            <div class="listing-card__footer">
+                                <p class="listing-card__author">Posted by X Builder</p>
+                                <span class="listing-card__price">$45,145</span>
+                            </div>
+                        </div>
+                    </article>
+                    </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container cta__container">
+                <div class="cta__content">
+                    <h2 class="cta__title">Find your best Real Estate</h2>
+                    <p class="cta__description">We provide a complete service for the sale, purchase or rental of real estate.</p>
+                    <a href="#" class="btn cta__btn">Contact Us</a>
+                </div>
+                
+                <div class="cta__image-wrapper">
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__about">
+                <a href="#" class="footer__logo">LogoIpsum</a>
+                <p class="footer__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
+                <div class="footer__socials">
+                    <a href="#" aria-label="Notre Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0 0 3.603 0 8.05C0 12.06 2.94 15.22 6.75 15.98V10.36H4.89V8.05h1.86V6.1c0-1.84.9-2.85 2.78-2.85c.8 0 1.45.06 1.63.09v2.03h-1.2c-.87 0-1.04.41-1.04 1.02v1.37h2.26l-.3 2.31H8.38v5.62c3.8-.76 6.75-3.92 6.75-7.93"/></svg></a>
+                    <a href="#" aria-label="Notre Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/></svg></a>
+                    <a href="#" aria-label="Notre Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42c-.522.2-.898.47-1.304.877-.405.405-.678.782-.877 1.304C.22 3.268.087 3.85.048 4.703.01 5.556 0 5.829 0 8s.01 2.444.048 3.297c.04.852.174 1.433.372 1.942.2.522.47.898.877 1.304.405.405.782.678 1.304.877.509.198 1.09.333 1.942.372.852.04 1.125.048 3.297.048s2.444-.01 3.297-.048c.852-.04 1.433-.174 1.942-.372.522-.2.898-.47 1.304-.877.405-.405.678-.782.877-1.304.198-.509.333-1.09.372-1.942.04-.852.048-1.125.048-3.297s-.01-2.444-.048-3.297c-.04-.852-.174-1.433-.372-1.942-.2-.522-.47-.898-.877-1.304-.405-.405-.782-.678-1.304-.877-.509-.198-1.09-.333-1.942-.372C10.444.01 10.171 0 8 0m0 1.44c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.282.24.705.275 1.485.039.843.047 1.096.047 3.232s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.598.92c-.28.28-.546.453-.92.598-.282.11-.705.24-1.485.276-.843.038-1.096.047-3.232.047s-2.389-.008-3.232-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598c-.28-.28-.453-.546-.598-.92-.11-.282-.24-.705-.276-1.485C1.448 10.444 1.44 10.171 1.44 8s.008-2.389.047-3.232c.036-.78.166-1.204.276-1.486.145-.373.319-.64.598-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276C5.611 1.448 5.864 1.44 8 1.44M8 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8m0 6.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5m4.5-5.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5"/></svg></a>
+                </div>
+            </div>
+            <div class="footer__links">
+                <h3 class="footer__links-title">Take a tour</h3>
+                <ul class="footer__links-list">
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Partners</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Product</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer__links">
+                <h3 class="footer__links-title">Our Company</h3>
+                <ul class="footer__links-list">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Agents</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Media</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer__subscribe">
+                <h3 class="footer__links-title">Subscribe</h3>
+                <p>Subscribe to get latest property, blog and promotions.</p>
+                <form class="footer__form">
+                    <label for="footer-email" class="sr-only">Votre email</label>
+                    
+                    <div class="footer__form-group">
+                        
+                        <input type="email" id="footer-email" class="footer__form-input" placeholder="Email Address">
+                        
+                        <button type="submit" class="footer__form-submit btn" aria-label="S'abonner">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="footer__copyright">
+            <p>&copy; 2025 LogoIpsum. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        const navToggle = document.querySelector('.header__toggle');
+        const navMenu = document.querySelector('.header__nav');
+        const loginBtn = document.querySelector('.header__login');
+
+        navToggle.addEventListener('click', () => {
+            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !isExpanded);
+            navMenu.classList.toggle('header__nav--visible');
+            loginBtn.classList.toggle('header__login--visible');
+            document.body.classList.toggle('no-scroll'); // Optionnel: pour bloquer le scroll
+        });
+    </script>
+</body>
+</html>
